@@ -7,13 +7,17 @@ import org.springframework.stereotype.Service;
 import com.example.user.domain.model.User;
 import com.example.user.domain.ports.UserRepositoryPort;
 import com.example.user.domain.ports.UserServicePort;
+import com.example.user.infrastructure.repository.UserEntity;
+import com.example.user.infrastructure.repository.JpaUserRepository;
 @Service
 public class UserServiceManager implements UserServicePort {
 
     private final UserRepositoryPort repository;
+    private final JpaUserRepository jpaRepository;
 
-    public UserServiceManager(UserRepositoryPort repository) {
+    public UserServiceManager(UserRepositoryPort repository, JpaUserRepository jpaRepository) {
         this.repository = repository;
+        this.jpaRepository = jpaRepository;
     }
 
     @Override
@@ -44,5 +48,20 @@ public class UserServiceManager implements UserServicePort {
     @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<UserEntity> findByName(String nombre) {
+        return jpaRepository.findByName(nombre);
+    }
+
+    @Override
+    public List<UserEntity> findByNameContaining(String fragment) {
+        return jpaRepository.findByNameContaining(fragment);
+    }
+
+    @Override
+    public List<UserEntity> buscarPorPrefijo(String prefix) {
+        return jpaRepository.buscarPorPrefijo(prefix);
     }
 }
