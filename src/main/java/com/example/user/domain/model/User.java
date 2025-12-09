@@ -1,4 +1,4 @@
-﻿package com.example.user.domain.model;
+package com.example.user.domain.model;
 
 import com.example.common.dto.ProductDTO;
 import java.util.List;
