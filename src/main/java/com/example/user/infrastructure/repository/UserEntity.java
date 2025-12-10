@@ -1,9 +1,7 @@
 package com.example.user.infrastructure.repository;
 
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import com.example.common.dto.ProductDTO; 
-import java.util.List;
+
 
 @Entity
 @Table(name = "users")
