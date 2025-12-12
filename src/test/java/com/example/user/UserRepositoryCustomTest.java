@@ -1,4 +1,4 @@
-﻿package com.example.user;
+package com.example.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
