@@ -8,14 +8,18 @@ public class UserMapper {
         return new User(
             entity.getId(),
             entity.getName(),
-            null
+            null,
+            entity.getEmail(),
+            entity.getPoints()
         );
     }
 
     public static UserEntity toEntity(User domain) {
         return new UserEntity(
             domain.getId(),
-            domain.getName()
+            domain.getName(),
+            domain.getEmail(),
+            domain.getPoints()
         );
     }
 }

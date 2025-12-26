@@ -20,8 +20,8 @@ class UserRepositoryCustomTest {
 
     @Test
     void testFindByNameContaining() {
-        userRepository.save(new UserEntity(null, "Ismael"));
-        userRepository.save(new UserEntity(null, "Isabella"));
+        userRepository.save(new UserEntity(null, "Ismael", "ismael@email.com", 100));
+        userRepository.save(new UserEntity(null, "Isabella", "isabella@email.com", 200));
 
         List<UserEntity> users = userRepository.findByNameContaining("Is");
 
@@ -30,9 +30,9 @@ class UserRepositoryCustomTest {
 
     @Test
     void testBuscarPorPrefijo() {
-        userRepository.save(new UserEntity(null, "Carlos"));
-        userRepository.save(new UserEntity(null, "Carmen"));
-        userRepository.save(new UserEntity(null, "Ana"));
+        userRepository.save(new UserEntity(null, "Carlos", "carlos@email.com", 150));
+        userRepository.save(new UserEntity(null, "Carmen", "carmen@email.com", 250));
+        userRepository.save(new UserEntity(null, "Ana", "ana@email.com", 300));
 
         List<UserEntity> usersWithPrefix = userRepository.buscarPorPrefijo("Car");
 

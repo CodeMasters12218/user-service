@@ -1,4 +1,4 @@
-package com.example.user.domain.model;
+﻿package com.example.user.domain.model;
 
 import com.example.common.dto.ProductDTO;
 import java.util.List;
@@ -15,12 +15,20 @@ public class User {
     @Schema(description = "List of products associated with the user")
     private List<ProductDTO> products;  
 
+    @Schema(description = "Email address of the user", example = "test@example.com")
+    private String email;
+
+    @Schema(description = "Loyalty points of the user", example = "150")
+    private Integer points;
+
     public User() {}
 
-    public User(Integer id, String name, List<ProductDTO> products) {
+    public User(Integer id, String name, List<ProductDTO> products, String email, Integer points) {
         this.id = id;
         this.name = name;
         this.products = products;
+        this.email = email;
+        this.points = points;
     }
 
     public Integer getId() {
@@ -42,5 +50,21 @@ public class User {
     }
     public void setProducts(List<ProductDTO> products) {
         this.products = products;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }
